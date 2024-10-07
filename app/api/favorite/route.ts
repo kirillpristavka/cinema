@@ -10,7 +10,7 @@ export async function POST(
         const currentUser = await getCurrentUser();
 
         if (!currentUser) {
-            return null;
+            throw new Error('No user');
         }
 
         const { movieId } = await request.json();
@@ -50,7 +50,7 @@ export async function DELETE(
         const currentUser = await getCurrentUser();
 
         if (!currentUser) {
-            return null;
+            throw new Error('No user');
         }
 
         const { movieId } = await request.json();
